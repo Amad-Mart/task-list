@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Task List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+   <header>
+       <!-- Fixed navbar -->
+       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+           <a class="navbar-brand" id="logo" href="index.html">Coding Challenge: Task List</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarCollapse">
+               <ul class="navbar-nav mr-auto">
+                   <li class="nav-item">
+                       <a class="nav-link" href="index.html">Home </a>
+                   </li>
+                   <li class="nav-item active">
+                       <a class="nav-link" href="app.html">The App <span class="sr-only">(current)</span></a>
+                   </li>
+                   <!-- <li class="nav-item">
+                       <a class="nav-link" href="code.html">See The Code</a>
+                   </li> -->
+                   <!-- <li class="nav-item">
+                       <a class="nav-link" href="https://github.com/mister-josuecedeno/checklist" target="_blank">Get
+                           The Code</a>
+                   </li> -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="https://amadeusportfolio.netlify.app" target="_blank">Meet The
+                           Developer</a>
+                   </li>
+               </ul>
+           </div>
+       </nav>
+   </header>
+<div class="sidenav">
+<a onclick="addTask()">Create Task</a>
+<a onclick="filterTasks()">Filter Tasks By:</a>
+</div>
+   <!-- Begin page content -->
+   <main role="main">
+       <!-- Import Layout from index.html -->
+       <div class="container">
+           <div class="row mt-5 pt-5">
+               <!-- Checklist -->
+               <div class="col-lg-12 col-md-12">
+                   <div class="section bg-dark text-white p-3 rounded shadow-sm bg-opacity">
+                       <!-- <h2 class="mb-4">Checklist</h2> -->
+                       <div class="mb-3">
+                           <!-- ADD Task -->
+                           <button id="submitBtn" type="button" class="btn btn-success" data-toggle="modal"
+                               data-target="#addTask">
+                               <i class="fas fa-plus"></i> Add Task
+                           </button>
+                       </div>
+
+                       <table class="table table-striped bg-white" id="event">
+                           <thead class="thead-light">
+                               <tr class="d-flex">
+                                   <th class="col-1"></th>
+                                   <th class="col d-none">ID</th>
+                                   <th class="col-5">Task</th>
+                                   <th class="col d-none d-md-block">Created</th>
+                                   <th class="col">Due Date</th>
+                                   <th class="col"></th>
+                               </tr>
+                           </thead>
+                           <tbody id="resultsBody">
+                               <!-- Data goes here -->
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Add Task Modal -->
+       <div class="modal" id="addTask">
+           <div class="modal-dialog">
+               <div class="modal-content">
+                   <!-- Header -->
+                   <div class="modal-header">
+                       <h4 class="modal-title">Add a new task</h4>
+                       <button type="button" class="close" data-dismiss="modal">
+                           &times;
+                       </button>
+                   </div>
+
+                   <!-- Body -->
+                   <div class="modal-body">
+                       <form action="" id="newTaskForm">
+                           <div class="form-group">
+                               <label for="newTask">Title</label>
+                               <input type="text" name="newTask" id="newTask" class="form-control"
+                                   placeholder="Title" />
+                           </div>
+
+                           <div class="form-group">
+                               <label for="newDueDate">Due Date</label>
+                               <input type="date" name="newDueDate" id="newDueDate" class="form-control" />
+                           </div>
+                       </form>
+                   </div>
+
+                   <!-- Footer -->
+                   <div class="modal-footer">
+                       <button type="button" onclick="addTask()" class="btn btn-success" data-dismiss="modal">
+                           Add Task
+                       </button>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <!-- End of Modal -->
+   </main>
+
+   <footer class="footer">
+       <div class="container text-center">
+           <span class="text-muted">&copy; Amadeus Martinez 2021</span>
+       </div>
+   </footer>
+
+   <!-- Template doesn't render on the body -->
+   <!-- <td class="col d-none d-md-block" id="id"></td> -->
+   <template id="Data-Template">
+       <tr class="d-flex">
+           <td class="col-1" id="complete">
+               <input type="checkbox" name="" id="" />
+           </td>
+           <td class="col d-none" id="id"></td>
+
+           <td class="col-5" id="task"></td>
+           <td class="col d-none d-md-block" id="createdDate"></td>
+           <td class="col" id="dueDate"></td>
+           <td class="col" id="controls">
+               <!-- Add Edit to next version -->
+               <!-- <button onclick="editTask(this)" class="btn btn-success">
+            <i class="fas fa-pencil-alt"></i>
+          </button> -->
+               <button onclick="deleteTask(this)" id="deleteBtn" class="btn btn-danger">
+                   Delete<i class="far fa-trash-alt"></i>
+               </button>
+           </td>
+       </tr>
+   </template>
+
+   <!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+   </script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+   </script>
+
+   <!-- Sweet Alerts -->
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+   <!-- UUID -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+
+   <!-- Custom JS -->
+   <script src="/js/site.js"></script>
+
+   <!-- Button Events -->
+   <!-- <script>
+    document.getElementById('submitBtn').addEventListener("click", printNumbers);
+  </script> -->
+   </body>
+
+   </html>

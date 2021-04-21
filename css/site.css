@@ -1,0 +1,127 @@
+body {
+background: #005AA7;
+/* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #FFFDE4, #005AA7);
+/* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #FFFDE4, #005AA7);
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#pageTitle {
+    position: absolute;
+    left: 400px;
+    top: 150px;
+    font-weight: 800;
+    font-size: 84px;
+    
+}
+#testItbtn{
+    font-weight: 700;
+    font-size: 54px;
+    position: absolute;
+    left: 480px;
+    top: 550px;
+   border: 2px solid lightblue;
+}
+#testItbtn:hover,
+#submitBtn:hover{
+    color: white;
+    background-color:green;
+}
+
+.pageDesc{
+    font-weight: 700;
+    font-size: 34px;
+    position: absolute;
+    left: 0px;
+    top: 350px;
+}
+.sidenav {
+    width: 160px;
+    position: absolute;
+    /* z-index: 1; */
+    top: 500;
+    left: 0;
+    bottom: 300;
+    color: white;
+    background-color: #343a40;
+    overflow-x: hidden;
+    padding-top: 20px;
+
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 21px;
+    color: white;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+/* #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+} */
+
+
+/* this will crossout complete tasks 
+tr.complete > td:nth-child(-n+4){
+
+}*/
